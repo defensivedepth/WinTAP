@@ -1,0 +1,111 @@
+;-------------------------------------------------------------------------
+; WTAPDRV.INF -- WinTap Protocol Driver
+;
+; Copyright 2013-2015, Defensive Depth (Defensivedepth.com)
+;
+; This file is part of WinTAP.  
+; WinTAP is dual-licensed under the MIT License http://opensource.org/licenses/MIT, 
+; as well as the GNU General Public License, version 3.
+;
+; GPL 3:
+; WinTAP is free software: you can redistribute it and/or modify
+; it under the terms of the GNU General Public License as published by
+; the Free Software Foundation, either version 3 of the License, or
+; (at your option) any later version.
+; 
+; WinTAP is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+; GNU General Public License for more details.
+;
+; You should have received a copy of the GNU General Public License
+; along with WinTAP.  If not, see <http://www.gnu.org/licenses/>.
+;
+;
+;-------------------------------------------------------------------------
+[version] 
+Signature   = "$Windows NT$"
+Class       = NetTrans
+ClassGUID   = {4d36e975-e325-11ce-bfc1-08002be10318}
+Provider    = %Mfg%
+DriverVer   = 10/05/2013,1.1
+CatalogFile  = wtapdrv.cat
+
+
+[Manufacturer]
+%Mfg%=WTAP,NTx86,NTia64,NTamd64
+
+[WTAP.NTx86]
+%Svc_Desc%=Install, WINTAP_TAPROTO
+
+[WTAP.NTia64]
+%Svc_Desc%=Install, WINTAP_TAPROTO
+
+[WTAP.NTamd64]
+%Svc_Desc%=Install, WINTAP_TAPROTO
+
+;-------------------------------------------------------------------------
+; Installation Section
+;-------------------------------------------------------------------------
+[Install]
+AddReg=Inst_Ndi
+Characteristics=0x0 ; 
+CopyFiles=CpyFiles_Sys
+
+;-------------------------------------------------------------------------
+; Ndi installation support
+;-------------------------------------------------------------------------
+[Inst_Ndi]
+HKR,Ndi,Service,,"wintap"
+HKR,Ndi,HelpText,,%Svc_HelpText%
+HKR,Ndi\Interfaces, UpperRange,, noupper
+HKR,"Ndi\Interfaces","LowerRange",,"ndis5,ndis4,ndis5_prot"
+
+;-------------------------------------------------------------------------
+; Service installation support
+;-------------------------------------------------------------------------
+[Install.Services]
+AddService=wintap,,WinTap_Service_Inst
+
+[WinTap_Service_Inst]
+DisplayName     = %Svc_Desc%
+ServiceType     = 1 ;SERVICE_KERNEL_DRIVER
+StartType       = 2 ;SERVICE_AUTO_START
+ErrorControl    = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary   = %12%\wtapdrv.sys
+LoadOrderGroup  = NDIS
+Description     = %Svc_Desc%
+
+[Install.Remove.Services]
+DelService=wintap,0x200
+
+;-------------------------------------------------------------------------
+; Declare Destination Directories for file copy/deletion
+;-------------------------------------------------------------------------
+[SourceDisksNames]
+1=%DiskDescription%,"",,
+
+[SourceDisksFiles]
+wtapdrv.sys=1
+
+
+[DestinationDirs]
+CpyFiles_Sys    = 12    ; DIRID_DRIVERS
+
+
+;-------------------------------------------------------------------------
+; Files to Copy/Delete - Referenced by Install and Remove sections above
+;-------------------------------------------------------------------------
+[CpyFiles_Sys]
+wtapdrv.sys,,,2
+
+[Strings]
+Mfg = "Aczire Solutions"
+DiskDescription = "WinTap Protocol Driver Disk"
+Svc_Desc = "WinTap Protocol Driver"
+Svc_HelpText = "WinTap driver to support user-mode I/O on NICs"
+
+
+
+
+

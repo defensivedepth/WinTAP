@@ -1,0 +1,98 @@
+<h1>ProtInstall - NDISPROT Driver Installer</h1>
+<p>This douument is:</p>
+<p>Copyright <font face="Arial">© 2006 Printing Communications Assoc., Inc.<br>
+(PCAUSA). All rights reserved.</font></p>
+<p>&nbsp;</p>
+<h2>Summary</h2>
+<p><b>ProtInstall</b> is a Win32 console application that is designed 
+specifically to install and uninstall the WDK NDISPROT NDIS protocol driver. It is loosely based on the
+<b>SNetCfg</b> application from the 
+Windows 2000 DDK.</p>
+<p>The application is designed to be called from a Windows Command Prompt window 
+or from a Windows Installer.</p>
+<p>&nbsp;</p>
+<h2>Building the Application</h2>
+<p>The application is built using Microsoft Visual Studio 2003.</p>
+<p>Building the application does depend on additional header files from the DDK. 
+You will have to adjust the project's &quot;Additional Include Directories&quot; property 
+to point to your DDK install folders:</p>
+<p>All Configurations<br>
+&nbsp;&nbsp;&nbsp; C/C++<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; General<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Additional 
+Include Directories</p>
+<p>Here are the additional include directories used at the time of this writing:</p>
+<blockquote>
+	<p><font face="Courier New">..\..\Include;C:\WINDDK\3790~1.183\inc\wxp;C:\WINDDK\3790.1830\inc\crt</font></p>
+</blockquote>
+<p>Strings defined in the ProtInstall.H header file are used to select the driver's 
+INF files, PnP IDs and Friendly Name. So, once built the application can only be 
+used to install the WDK NDISPROT driver. However, since source code to 
+<b>ProtInstall</b> is available you may make modifications to suit your own needs.</p>
+<h2>Installing and Uninstalling the Driver using ProtInstall</h2>
+<p>As written <b>ProtInstall</b> must be run from a folder that also contains the 
+NDISPROT driver package, which includes the driver executable, INF and CAT 
+files.</p>
+<p>To install NDISPROT the install folder 
+would contain these items:</p>
+<ul>
+	<li>ProtInstall.EXE</li>
+	<li>NDISPROT.SYS</li>
+	<li>NDISPROT.INF</li>
+	<li>NDISPROT.CAT</li>
+</ul>
+<h3>Installing the Driver</h3>
+<p>To install the driver run the <b>ProtInstall</b> application with the /Install 
+command-line switch:</p>
+<blockquote>
+	<p><font face="Courier New">ProtInstall /Install</font></p>
+</blockquote>
+<p>&nbsp;</p>
+<h3>Uninstalling the Driver</h3>
+<p>To uninstall the driver run the <b>ProtInstall</b> application with the /Uninstall 
+command-line switch:</p>
+<blockquote>
+	<p><font face="Courier New">ProtInstall /Uninstall</font></p>
+</blockquote>
+<p>&nbsp;</p>
+<h3>Hiding the Command Window</h3>
+<p>In some cases it may be desirable to hide the <b>ProtInstall</b> command window from 
+view. This may be particularly desirable when using <b>ProtInstall</b> in conjunction with 
+a Windows Installer. To hide the <b>ProtInstall</b> window append the /Hide 
+command-line switch after the /Install or /Uninstall switch. </p>
+<p>Here is an example command-line that hides the <b>ProtInstall</b> window during 
+installation:</p>
+<blockquote>
+	<p><font face="Courier New">ProtInstall /Install /hide</font></p>
+</blockquote>
+<p>&nbsp;</p>
+<h3>Using ProtInstall in a Windows Installer</h3>
+<p>Use the Windows Installer Custom Actions feature to call ProtInstall.EXE.</p>
+<p>For example, to call <b>ProtInstall</b> to install the driver, add a new &quot;Install 
+Driver&quot; action to the pre-defined Install action. The Install Driver <i><b>Arguments</b></i> 
+property would be /Install and the <i><b>SourcePath</b></i> property would be the path to the 
+ProtInstall.exe file on the development computer.</p>
+<p>To call <b>ProtInstall</b> to uninstall the driver, add a new &quot;Uninstall Driver&quot; action 
+to the pre-defined Uninstall action. The Uninstall Driver <i><b>Arguments</b></i> property 
+would be /Uninstall and the <i><b>SourcePath</b></i> property would be the path to the 
+ProtInstall.exe file on the development computer.</p>
+<p>&nbsp;</p>
+<h3>License for ProtInstall Usage</h3>
+<p>This software IS free software under the terms of a BSD-style license. The 
+right to use this code in your own derivative works is granted so long as</p>
+<ol>
+	<li>Your own derivative works include significant modifications of your own.<br>
+&nbsp;</li>
+	<li>You retain the above copyright notices and this paragraph in its 
+	entirety within sources derived from this code.</li>
+</ol>
+<p>This product includes software developed by PCAUSA. The name of PCAUSA may 
+not be used to endorse or promote products derived from this software without 
+specific prior written permission.</p>
+<blockquote>
+	<p>THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED // 
+	WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF&nbsp; 
+	MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</p>
+</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

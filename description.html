@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:SearchBox,0:ImageSprite;/Areas/Epx/Themes/Metro/Content:0&amp;amp;hashKey=117BAC28FA404ADE34B839F23DA6CC1E" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/d0a480a2-d1c4-4159-af59-5aa4abd59cb0Combined.css,0:ImageSprite;/Areas/Epx/Themes/Metro/Content:0&amp;amp;hashKey=9BB0483639637E71A098F1750E860CCF" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>WinTap Protocol Driver v1.1</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" /><link href="description/84ada392-ed9e-43d3-9c3e-f99f948be6cbBrand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>WinTap Protocol Driver v1.1</h1>
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    <style> pre.syntax { font-size: 110 background: #dddddd; padding: 4px,8px; cursor: text; color: #000000; width: 97 } body{font-family:Verdana,Arial,Helvetica,sans-serif;color:#000;font-size:80%} H1{font-size:150%;font-weight:bold} H1.heading{font-size:110%;font-family:Verdana,Arial,Helvetica,sans-serif;font-weight:bold;line-height:120%}
+ H2{font-size:115%;font-weight:700} H2.subtitle{font-size:180%;font-weight:400;margin-bottom:.6em} H3{font-size:110%;font-weight:700} H4,H5,H6{font-size:100%;font-weight:700} h4.subHeading{font-size:100%} dl{margin:0 0 10px;padding:0 0 0 1px} dt{font-style:normal;margin:0}
+ li{margin-bottom:3px;margin-left:0} ol{line-height:140%;list-style-type:decimal;margin-bottom:15px;margin-left:24px} ol ol{line-height:140%;list-style-type:lower-alpha;margin-bottom:4px;margin-left:24px;margin-top:3px} ol ul,ul ol{line-height:140%;margin-bottom:15px;margin-top:15px}
+ p{margin:0 0 10px;padding:0} div.section p{margin-bottom:15px;margin-top:0} ul{line-height:140%;list-style-position:outside;list-style-type:disc;margin-bottom:15px} ul ul{line-height:140%;list-style-type:disc;margin-bottom:4px;margin-left:17px;margin-top:3px}
+ .heading{font-weight:700;margin-bottom:8px;margin-top:18px} .subHeading{font-size:100%;font-weight:700;margin:0} div#mainSection table{border:1px solid #ddd;font-size:100%;margin-bottom:5px;margin-left:5px;margin-top:5px;width:97%;clear:both} div#mainSection
+ table tr{vertical-align:top} div#mainSection table th{border-bottom:1px solid #c8cdde;color:#006;padding-left:5px;padding-right:5px;text-align:left} div#mainSection table td{border:1px solid #d5d5d3;margin:1px;padding-left:5px;padding-right:5px} div#mainSection
+ table td.imageCell{white-space:nowrap} /* These are the original lines from global-bn1945 div.ContentArea table th,div.ContentArea table td{background:#fff;border:0 solid #ccc;font-family:Verdana;padding:5px;text-align:left;vertical-align:top} div.ContentArea
+ table th{background:#ccc none repeat scroll 0% 50%;vertical-align:bottom} div.ContentArea table{border-collapse:collapse;width:auto} */ /* Removing ContentArea class requirement from commented out lines from global-bn1945 above */ table th,table td{background:#fff;border:0
+ solid #ccc;font-family:Verdana;padding:5px;text-align:left;vertical-align:top} table th{background:#ccc none repeat scroll 0% 50%;vertical-align:bottom} table{border-collapse:collapse;width:auto} div.clsNote{background-color:#eee;margin-bottom:4px;padding:2px}
+ div.code{width:98.9%} code{font-family:Monospace,Courier New,Courier;font-size:105%;color:#006} span.label{font-weight:bold} div.caption{font-weight:bold;font-size:100%;color:#039} .procedureSubHeading{font-size:110%;font-weight:bold} span.sub{vertical-align:sub}
+ span.sup{vertical-align:super} span.big{font-size:larger} span.small{font-size:smaller} span.tt{font-family:Courier,"Courier New",Consolas,monospace} .CCE_Message{color:Red;font-size:10pt} </style>
+<div id="mainSection">
+<p>WinTap (wtapdrv.sys) is a connection-less NDIS 6.0 protocol driver to support user-mode mirroring of raw ethernet frames from one network device to another. The wintap.exe is the user-mode application program which setup a uni-directional, user-level bridge to create a soft-tap, like daemonlogger. It opens the source and destination adapters specified by the user and starts copying all ethernet frames from source to destination. I.e, it receives packets from adapter 1 and sends them down to adapter 2. During the mirroring process, the ethernet frames are re-written to match the destination adapter's MAC.</p>
+<h3>To Build WinTap</h3>
+<p>
+The source code for WinTap is available for download at
+</p><blockquote>
+<a href="https://github.com/aczire/wintap">
+    https://github.com/aczire/wintap</a>
+</blockquote>
+To build the WinTap package from source:
+<ol>
+<li> Download and install the <a href="http://www.microsoft.com/whdc/devtools/wdk/default.mspx">Visual Studio 2012</a>.</li>
+<li> Download and install the latest <a href="http://www.microsoft.com/whdc/devtools/wdk/default.mspx">Windows Driver Kit</a>.</li>
+<li> Open <i>wintap.sln</i> in Visual Studio 2012.</li>
+<li> Rebuild the solution.
+<p>This will build the following files and place them in the
+<i>&lt;SolutionDir&gt;\&lt;Platform&gt;\&lt;ConfigurationName&gt;\Package</i> subdirectory:</p>
+<ul>
+<li> wtapdrv.sys: Kernel-mode driver.</li>
+<li> wtapdrv.inf: INF file for wtapdrv.sys.</li>
+<li> wtapdrv.cat: CAT file for wtapdrv.sys.</li>
+<li> wtapdrv.pdb: Debug symbols for WinDivert.sys.</li>
+<li> WinTap.exe: User-mode application to reflect traffic.</li>
+</ul>
+</ol>
+<h3>Driver Signing</h3>
+<p>
+Before the WinTap package can be used, the wtapdrv.sys driver must be digitally signed.
+This is Microsoft policy for all kernel drivers in recent versions of
+Windows. See <a href="http://msdn.microsoft.com/en-us/windows/hardware/gg487317.aspx">Driver Signing Requirements for Windows</a>
+for more information. If you wish to simply test WinTap, you can set up a <i>test certificate</i> and <i>test sign</i> the wtapdrv.sys</tt>
+driver.
+See <a href="http://msdn.microsoft.com/en-us/library/windows/hardware/ff553467%28v=vs.85%29.aspx#using_a_makecert_test_certificate_or_a_commercial_test_certificate_to_">
+Test Signing a Driver Package</a> for more information.
+In summary, the steps are:
+</p><ol>
+    <li> Download and install the latest
+<a href="http://msdn.microsoft.com/en-us/windows/hardware/gg487428.aspx">Windows
+    Driver Kit</a>.</li>
+    <li> Open a WDK <i>Build Environment</i> console as Administrator.</li>
+    <li> Run the <i>MakeCert.exe</i> tool to create a test certificate, e.g.
+    with:
+<br><i>    MakeCert -r -pe -ss TestCertStoreName -n "CN=TestCertName" CertFileName.cer</i>
+    </li>
+    <li> Install the test certificate with <tt>CertMgr.exe</tt>, e.g. with:<br>
+    <i>CertMgr /add CertFileName.cer /s /r localMachine ROOT</i><br>
+	<i>CertMgr /add CertFileName.cer /s /r localMachine TrustedPublisher</i>
+    </li>
+    <li> Sign <i>wtapdrv.sys</i> with the test certificate, e.g. with:<br>
+<i>    SignTool sign /v /s TestCertStoreName /n TestCertName wtapdrv.sys
+</i>
+    </li>
+    <li> Before you can load test-signed drivers, you must enable
+    Windows <i>test mode</i>.
+    To do this, run the command:
+<pre>    Bcdedit.exe -set TESTSIGNING ON
+</pre>
+    and restart Windows.
+    For more information, see
+    <a href="http://msdn.microsoft.com/en-us/library/windows/hardware/ff553484%28v=vs.85%29.aspx">The
+    TESTSIGNING Boot Configuration Option</a>.
+    </li>
+</ol>
+After following these steps you should be able to use the WinTap driver.
+<p></p>
+<p>For information on how to build a driver solution using Microsoft Visual Studio, see
+<a href="http://msdn.microsoft.com/en-us/library/windows/hardware/Ff554644">Building a Driver</a>.</p>
+<h3>To Run WinTap</h3>
+<h3><a id="INSTALLATION"></a><a id="installation"></a>INSTALLATION</h3>
+<p>You can either use the provided setup.exe or do the manual installation</p>
+<p>For automated install using setup.exe, place all the driver files ( wtapdrv.sys, wtapdrv.inf, wtapdrv.cat ) together with setup.exe in a separate folder.</p>Now run <pre>setup.exe /install</pre> within an administrative console. Verify in Network Connections UI that the driver is correctly installed.</p>
+<h2>Manual Install</h2>
+<p>The driver is installed using the INF file wtapdrv.inf, which is provided in the driver directory. </p><p>In Network Connections UI, select an adapter and open
+<b>Properties.</b></p>
+<p>Click <b>Install</b>, then <b>Protocol</b>, then <b>Add</b>, and then <b>Have disk</b>. Then point to the location of the .inf and driver.</p>
+<p>Select <b>WinTap Protocol Driver</b> and click <b>OK</b>. After installing the protocol, copy over the user-mode application wintap.exe to a convenient location. Please note that the driver service has been set to manual start in the INF file. As a result,
+ it doesn't get loaded automatically when you install.</p>
+<h3><a id="Usage"></a><a id="usage"></a><a id="USAGE"></a>Usage</h3>
+<p>To start the driver, type <b>net start wintap</b>.</p>
+<p>To stop the driver, type <b>net stop wintap</b>.</p>
+<p>To test the driver, run <b>wintap</b>. For help on usage, run <b>wintap -?</b></p>
+<p><b>usage: wintap &lt;source deviceid&gt; &lt;destination deviceid&gt;</b> </p>
+<p><b>*Note: In order to use wintap, the user must have administrative privilege.</b> </p>
+
+<pre>C:\Users\Administrator\wintap>wintap.exe
+Available Devices:
+ 0. \DEVICE\{CE5C7DDF-A5A4-4534-B354-633C1CDB70CB}
+     - Intel(R) PRO/1000 MT Network Connection #2
+ 1. \DEVICE\{17152850-6288-471A-9708-2889E7F55EE8}
+     - Intel(R) PRO/1000 MT Network Connection
+
+Enter the number of source interface to use (0-1):1
+Enter the number of destination interface to use (0-1):0
+
+ 1. \DEVICE\{17152850-6288-471A-9708-2889E7F55EE8}
+     - Intel(R) PRO/1000 MT Network Connection
+Trying to access NDIS Device: \DEVICE\{17152850-6288-471A-9708-2889E7F55EE8}
+Opened source interface successfully!
+Trying to get src mac address
+Got source MAC: 00:0c:29:34:a1:09
+
+ 0. \DEVICE\{CE5C7DDF-A5A4-4534-B354-633C1CDB70CB}
+     - Intel(R) PRO/1000 MT Network Connection #2
+Trying to access NDIS Device: \DEVICE\{CE5C7DDF-A5A4-4534-B354-633C1CDB70CB}
+Opened destination interface successfully!
+Trying to get destination mac address
+Got destination MAC: 00:0c:29:34:a1:13
+
+Started reflecting the adapter...
+>>: read pkt - 148 bytes
+>>: read pkt - 60 bytes
+</pre>
+
+<p></p>
+<p>For more information, see <a href="http://msdn.microsoft.com/en-us/library/windows/hardware/Ff566821">
+NDIS Protocol Drivers</a>.</p>
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
